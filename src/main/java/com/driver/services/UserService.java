@@ -38,9 +38,21 @@ public class UserService {
         int viewableContent = 0;
         for(WebSeries series:webSeriesList)
         {
-            if(series.getSubscriptionType().equals(subscriptionType) && user.getAge() >= series.getAgeLimit())
+            if(user.getAge() >= series.getAgeLimit())
             {
-                viewableContent++;
+                if(subscriptionType.equals(SubscriptionType.ELITE))
+                {
+                    viewableContent++;
+                }
+                else if(subscriptionType.equals(SubscriptionType.PRO) && (series.getSubscriptionType().equals(SubscriptionType.BASIC) ||
+                        series.getSubscriptionType().equals(SubscriptionType.PRO)))
+                {
+                    viewableContent++;
+                }
+                else if(subscriptionType.equals(SubscriptionType.BASIC) && (series.getSubscriptionType().equals(SubscriptionType.BASIC))
+                {
+                    viewableContent++;
+                }
             }
         }
         return viewableContent;
