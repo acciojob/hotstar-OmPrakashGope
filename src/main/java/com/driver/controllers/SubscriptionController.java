@@ -20,9 +20,7 @@ public class SubscriptionController {
 
     @PostMapping("/buy")
     public Integer buySubscription(SubscriptionEntryDto subscriptionEntryDto){
-
         //We need to buy subscription and save its relevant subscription to the db and return the finalAmount
-
         return subscriptionService.buySubscription(subscriptionEntryDto);
     }
 

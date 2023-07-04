@@ -18,10 +18,8 @@ public class WebseriesController {
 
     @PostMapping("/add")
     public int addWebSeries(WebSeriesEntryDto webSeriesEntryDto){
-
         try{
             return webSeriesService.addWebSeries(webSeriesEntryDto);
-
         }catch (Exception e){
             return -1;
         }
