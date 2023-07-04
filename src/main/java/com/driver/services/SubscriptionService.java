@@ -60,12 +60,12 @@ public class SubscriptionService {
         else if(subscription.getSubscriptionType().equals(SubscriptionType.BASIC))
         {
             subscription.setSubscriptionType(SubscriptionType.PRO);
-            subscription.setTotalAmountPaid(800 + subscription.getNoOfScreensSubscribed()*250);
+            subscription.setTotalAmountPaid(800 + (subscription.getNoOfScreensSubscribed()*250));
         }
         else if(subscription.getSubscriptionType().equals(SubscriptionType.PRO))
         {
             subscription.setSubscriptionType(SubscriptionType.ELITE);
-            subscription.setTotalAmountPaid(1000 + subscription.getNoOfScreensSubscribed()*350);
+            subscription.setTotalAmountPaid(1000 + (subscription.getNoOfScreensSubscribed()*350));
         }
         user.setSubscription(subscription);
         subscription.setUser(user);

@@ -38,7 +38,7 @@ public class UserService {
         int viewableContent = 0;
         for(WebSeries series:webSeriesList)
         {
-            if(series.getSubscriptionType().equals(subscriptionType) && user.getAge() >= series.getAgeLimit())
+            if(series.getSubscriptionType().equals(subscriptionType) && user.getAge() > series.getAgeLimit())
             {
                 viewableContent++;
             }
