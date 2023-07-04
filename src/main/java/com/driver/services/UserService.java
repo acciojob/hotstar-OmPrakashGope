@@ -49,7 +49,7 @@ public class UserService {
                 {
                     viewableContent++;
                 }
-                else if(subscriptionType.equals(SubscriptionType.BASIC) && (series.getSubscriptionType().equals(SubscriptionType.BASIC))
+                else if(subscriptionType.equals(SubscriptionType.BASIC) && series.getSubscriptionType().equals(SubscriptionType.BASIC))
                 {
                     viewableContent++;
                 }
