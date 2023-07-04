@@ -57,18 +57,21 @@ public class SubscriptionService {
         {
             throw new Exception("Already the best Subscription");
         }
+        int amount = 0;
         if(subscription.getSubscriptionType().equals(SubscriptionType.BASIC))
         {
             subscription.setSubscriptionType(SubscriptionType.PRO);
             subscription.setTotalAmountPaid(800 + (subscription.getNoOfScreensSubscribed()*250));
+            amount = 300 + 50*subscription.getNoOfScreensSubscribed();
         }
         else if(subscription.getSubscriptionType().equals(SubscriptionType.PRO))
         {
             subscription.setSubscriptionType(SubscriptionType.ELITE);
             subscription.setTotalAmountPaid(1000 + (subscription.getNoOfScreensSubscribed()*350));
+            amount = 200 + 100*subscription.getNoOfScreensSubscribed();
         }
         userRepository.save(user);
-        return subscription.getTotalAmountPaid();
+        return amount;
     }
 
     public Integer calculateTotalRevenueOfHotstar(){
