@@ -67,8 +67,6 @@ public class SubscriptionService {
             subscription.setSubscriptionType(SubscriptionType.ELITE);
             subscription.setTotalAmountPaid(1000 + (subscription.getNoOfScreensSubscribed()*350));
         }
-        user.setSubscription(subscription);
-        subscription.setUser(user);
         userRepository.save(user);
         return subscription.getTotalAmountPaid();
     }
