@@ -57,7 +57,7 @@ public class SubscriptionService {
         {
             throw new Exception("Already the best Subscription");
         }
-        else if(subscription.getSubscriptionType().equals(SubscriptionType.BASIC))
+        if(subscription.getSubscriptionType().equals(SubscriptionType.BASIC))
         {
             subscription.setSubscriptionType(SubscriptionType.PRO);
             subscription.setTotalAmountPaid(800 + (subscription.getNoOfScreensSubscribed()*250));
@@ -68,6 +68,7 @@ public class SubscriptionService {
             subscription.setTotalAmountPaid(1000 + (subscription.getNoOfScreensSubscribed()*350));
         }
         user.setSubscription(subscription);
+        subscription = subscriptionRepository.save(subscription);
         subscription.setUser(user);
         userRepository.save(user);
         return subscription.getTotalAmountPaid();
